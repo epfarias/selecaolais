@@ -1,16 +1,17 @@
 /*
-  Botoes de Alimentação, Sede, Calor, Frio e Pânico.
+  Botoes de Alimentação, Sede, Calor, Frio, Ligar TV e Pânico.
  
- Liga e desliga um LED conectado aos pinos digitais quando pressionado algum botao conectado ao seu respectivo pino.
+ Liga e desliga o buzzer e um LED conectado aos pinos digitais quando pressionado algum botao conectado ao seu respectivo pino.
  
  O Circuito:
- * LED conectados aos pinos 9,10,11,12 e 13 e ao GND.
- * botoes conectados aos pinos 2,3,4,5 e 6 desde 5V
- * resistor de 10K conectados aos pinos 2,3,4,5 e 6 desde o terra
+ * LED conectados aos pinos 8,9,10,11,12 e 13 e ao GND.
+ * botoes conectados aos pinos 2,3,4,5,6 e 7 desde 5V
+ * resistor de 100 conectados aos pinos 2,3,4,5,6 e 7 desde o terra
 */
 
 // constantes nao sao alteradas.
 // Sao usadas aqui para definir os numeros dos pinos:
+int pinBuz = 1;               // Buzzer
 const int buttonPin2 = 2;     // Botão de Alimentação
 const int ledPin2 =  13;      // LED de Alimentação
 const int buttonPin3 = 3;     // Botão de Sede
@@ -57,9 +58,10 @@ void setup() {
   // inicializa o pino do LED como saida:
   pinMode(ledPin7, OUTPUT);     
   // inicializa o pino do botao como entrada:
-  pinMode(buttonPin7, INPUT); 
+  pinMode(buttonPin7, INPUT);
+  // inicializa o pino do buzzer como saida:
+  pinMode(pinBuz, OUTPUT);
 }
-
 void loop(){
   // faz a leitura do valor do botao:
   button2State = digitalRead(buttonPin2);
@@ -78,7 +80,10 @@ void loop(){
   // em caso positivo, buttonState e HIGH:
   if (button2State == HIGH) {   
     // liga o LED:   
-    digitalWrite(ledPin2, HIGH); 
+    digitalWrite(ledPin2, HIGH);
+    tone(pinBuz,2999,800);// esta linha de código é usada especialmente para o buzzer
+                      //O seu funcionamento é : o pino(buz = 1), a frequência e o tempo de duração em milissegundos
+    delay(10000);      //delay (ms)
   }
   else {
     // desliga o LED:
@@ -87,7 +92,10 @@ void loop(){
   
   if (button3State == HIGH) {   
     // liga o LED:   
-    digitalWrite(ledPin3, HIGH); 
+    digitalWrite(ledPin3, HIGH);
+    tone(pinBuz,2999,800);// esta linha de código é usada especialmente para o buzzer
+                      //O seu funcionamento é : o pino(buz = 1), a frequência e o tempo de duração em milissegundos
+    delay(10000);      //delay (ms)
   }
   else {
     // desliga o LED:
@@ -96,7 +104,10 @@ void loop(){
   
   if (button4State == HIGH) {   
     // liga o LED:   
-    digitalWrite(ledPin4, HIGH); 
+    digitalWrite(ledPin4, HIGH);
+    tone(pinBuz,2999,800);// esta linha de código é usada especialmente para o buzzer
+                      //O seu funcionamento é : o pino(buz = 1), a frequência e o tempo de duração em milissegundos
+    delay(10000);      //delay (ms)
   }
   else {
     // desliga o LED:
@@ -105,7 +116,10 @@ void loop(){
   
   if (button5State == HIGH) {   
     // liga o LED:   
-    digitalWrite(ledPin5, HIGH); 
+    digitalWrite(ledPin5, HIGH);
+    tone(pinBuz,2999,800);// esta linha de código é usada especialmente para o buzzer
+                      //O seu funcionamento é : o pino(buz = 1), a frequência e o tempo de duração em milissegundos
+    delay(10000);      //delay (ms)
   }
   else {
     // desliga o LED:
@@ -114,7 +128,10 @@ void loop(){
   
   if (button6State == HIGH) {   
     // liga o LED:   
-    digitalWrite(ledPin6, HIGH); 
+    digitalWrite(ledPin6, HIGH);
+    tone(pinBuz,2999,800);// esta linha de código é usada especialmente para o buzzer
+                      //O seu funcionamento é : o pino(buz = 1), a frequência e o tempo de duração em milissegundos
+    delay(10000);      //delay (ms)
   }
   else {
     // desliga o LED:
@@ -123,10 +140,14 @@ void loop(){
   
   if (button7State == HIGH) {   
     // ligao LED:   
-    digitalWrite(ledPin7, HIGH); 
+    digitalWrite(ledPin7, HIGH);
+    tone(pinBuz,2999,800);// esta linha de código é usada especialmente para o buzzer
+                      //O seu funcionamento é : o pino(buz = 1), a frequência e o tempo de duração em milissegundos
+    delay(10000);      //delay (ms)
   }
   else {
     // desliga o LED:
     digitalWrite(ledPin7, LOW);
   }
+ 
 }
